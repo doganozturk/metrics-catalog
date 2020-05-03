@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  dashboard:
+    image: metrics-catalog/dashboard
+    build:
+      context: dashboard
+      dockerfile: Dockerfile
+    environment:
+      - REACT_APP_API_URL=http://localhost:3001/metrics/
+    ports:
+      - "3000:3000"
+    tty: true
+    depends_on:
+      - api
+
+  api:
+    image: metrics-catalog/api
+    build:
+      context: api
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=mongodb://db_mongo
+    ports:
+      - "3001:3000"
+    depends_on:
+      - database
+
+  database:
+    image: mongo
+    container_name: db_mongo
+    ports:
+      - "27017:27017"
