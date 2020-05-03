@@ -1,0 +1,9 @@
+[submodule "api"]
+	path = api
+	url = git@github.com:doganozturk/metrics-catalog-api.git
+[submodule "dashboard"]
+	path = dashboard
+	url = git@github.com:doganozturk/metrics-catalog-dashboard.git
+[submodule "lib"]
+	path = lib
+	url = git@github.com:doganozturk/metrics-catalog-js.git
